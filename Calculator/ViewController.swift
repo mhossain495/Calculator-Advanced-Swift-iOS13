@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var displayLabel: UILabel!
     
-    // Private variable is only accessible between curly braces of code block
+    // Private variable is only accessible between curly braces of code block (current ViewController)
     private var isFinishedTypingNumber: Bool = true
     
     
@@ -21,6 +21,12 @@ class ViewController: UIViewController {
         //What should happen when a non-number button is pressed
     
         isFinishedTypingNumber = true
+        
+        // If value can't be converted to double then return fatalError
+        guard let number = Double(displayLabel.text!) else {
+            fatalError("Cannot convert display label text to a Double")
+        }
+        
         
         }
     
