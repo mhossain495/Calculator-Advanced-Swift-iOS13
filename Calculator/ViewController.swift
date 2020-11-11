@@ -12,7 +12,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var displayLabel: UILabel!
     
-    var isFinishedTypingNumber: Bool = true
+    // Private variable is only accessible between curly braces of code block
+    private var isFinishedTypingNumber: Bool = true
     
     
     @IBAction func calcButtonPressed(_ sender: UIButton) {
