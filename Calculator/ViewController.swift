@@ -46,13 +46,24 @@ class ViewController: UIViewController {
         
         //What should happen when a number is entered into the keypad
         
-        // display label to show values of button pressed
+        // Display label to show values of button pressed
         if let numValue = sender.currentTitle {
             
             if isFinishedTypingNumber {
                 displayLabel.text = numValue
                 isFinishedTypingNumber = false
             } else {
+                
+                // Prevent multiple decimals when user taps decimal
+                if numValue == "." {
+                    guard let currentDisplayValue = Double(displayLabel.text!) else {
+                        fatalError("cannot convert display label text to a Double!")
+                    }
+                    let isInt = floor(currentDisplayValue) == currentDisplayValue
+                    if !isInt {
+                        return
+                    }
+                }
                 displayLabel.text = displayLabel.text! + numValue
             }
         
