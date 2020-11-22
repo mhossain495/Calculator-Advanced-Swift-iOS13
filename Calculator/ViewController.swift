@@ -2,9 +2,7 @@
 //  ViewController.swift
 //  Calculator
 //
-//  Created by Angela Yu on 10/09/2019.
-//  Copyright © 2019 London App Brewery. All rights reserved.
-//
+
 
 import UIKit
 
@@ -15,17 +13,24 @@ class ViewController: UIViewController {
     // Private variable is only accessible between curly braces of code block (current ViewController)
     private var isFinishedTypingNumber: Bool = true
     
+    // What should happen when a non-number button is pressed
+    private var displayValue: Double {
+        get {
+            guard let number = Double(displayLabel.text!) else {
+                fatalError("Cannot convert display label text to a Double")
+            }
+            return number
+        }
+    }
     
     @IBAction func calcButtonPressed(_ sender: UIButton) {
         
-        //What should happen when a non-number button is pressed
+       
     
         isFinishedTypingNumber = true
         
         // If value can't be converted to double then return fatalError
-        guard let number = Double(displayLabel.text!) else {
-            fatalError("Cannot convert display label text to a Double")
-        }
+      
         
         // Functions to clear, convert to %, or invert value
         if let calcMethod = sender.currentTitle {
