@@ -35,16 +35,7 @@ class ViewController: UIViewController {
         // If value can't be converted to double then return fatalError
       
         
-        // Functions to clear, convert to %, or invert value
         if let calcMethod = sender.currentTitle {
-            if calcMethod == "+/-" {
-                displayValue = displayValue * -1
-            } else if calcMethod == "AC" {
-                    displayLabel.text = "0"
-            } else if calcMethod == "%" {
-                displayValue = displayValue / 100
-            }
-        }
         
         }
     
