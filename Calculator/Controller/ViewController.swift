@@ -26,6 +26,8 @@ class ViewController: UIViewController {
         }
     }
     
+    private let calculator = CalculatorLogic()
+    
     @IBAction func calcButtonPressed(_ sender: UIButton) {
         
         // What should happen when a number button is pressed
