@@ -12,6 +12,9 @@ struct  CalculatorLogic {
     
     private var number: Double?
     
+    mutating func setNumber(_ number: Double) {
+        self.number = number
+    }
     
     // Functions to clear, convert to %, or invert value
     func calculate(symbol: String)  -> Double? {

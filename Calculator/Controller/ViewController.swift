@@ -26,18 +26,18 @@ class ViewController: UIViewController {
         }
     }
     
-    private let calculator = CalculatorLogic()
+    private var calculator = CalculatorLogic()
     
     @IBAction func calcButtonPressed(_ sender: UIButton) {
         
         // What should happen when a number button is pressed
         isFinishedTypingNumber = true
         
+        calculator.setNumber(displayValue)
+        
         // If value can't be converted to double then return fatalError
         
         if let calcMethod = sender.currentTitle {
-            
-            let calculator = CalculatorLogic(number: displayValue)
             
             guard let result = calculator.calculate(symbol: calcMethod) else {
                 fatalError("The result of calculation is nil")
