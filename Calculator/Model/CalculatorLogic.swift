@@ -22,16 +22,16 @@ struct  CalculatorLogic {
     mutating func calculate(symbol: String)  -> Double? {
         
         if let n = number {
-            
-            if symbol == "+/-" {
+            switch symbol {
+            case "+/-":
                 return n * -1
-            } else if symbol == "AC" {
+            case "AC":
                 return 0
-            } else if symbol == "%" {
+            case "%":
                 return n / 100
-            } else if symbol == "=" {
+            case "=":
                 return performTwoNumCalculation(n2: n)
-            } else {
+            default:
                 intermediateCalculation = (n1: n, calcMethod: symbol)
             }
         }
